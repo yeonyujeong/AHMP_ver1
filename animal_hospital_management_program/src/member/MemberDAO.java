@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class MemberDAO {
@@ -29,6 +30,10 @@ public class MemberDAO {
 			conn = DriverManager.getConnection(Member_dbUrl , dbId , dbPwd);
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			if(rs != null)    try {rs.close();}    catch (SQLException e) {e.printStackTrace();}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {e.printStackTrace();}
+			if(conn != null)  try {conn.close();}  catch (SQLException e) {e.printStackTrace();}
 		}		
 		return conn;
 	}
@@ -50,6 +55,10 @@ public class MemberDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			if(rs != null)    try {rs.close();}    catch (SQLException e) {e.printStackTrace();}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {e.printStackTrace();}
+			if(conn != null)  try {conn.close();}  catch (SQLException e) {e.printStackTrace();}
 		}
 		
 		
@@ -74,9 +83,8 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			if (rs != null)    try {rs.close();} catch (Exception e){}
-			if (pstmt != null) try {pstmt.close();} catch (Exception e){}
-			if (conn != null)  try {conn.close();} catch (Exception e){}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {e.printStackTrace();}
+			if(conn != null)  try {conn.close();}  catch (SQLException e) {e.printStackTrace();}
 		}
 		
 	}
@@ -92,9 +100,9 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			if (rs != null)    try {rs.close();} catch (Exception e){}
-			if (pstmt != null) try {pstmt.close();} catch (Exception e){}
-			if (conn != null)  try {conn.close();} catch (Exception e){}
+			if(rs != null)    try {rs.close();}    catch (SQLException e) {e.printStackTrace();}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {e.printStackTrace();}
+			if(conn != null)  try {conn.close();}  catch (SQLException e) {e.printStackTrace();}
 		}
 		
 	}
@@ -116,9 +124,9 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			if (rs != null)    try {rs.close();} catch (Exception e){}
-			if (pstmt != null) try {pstmt.close();} catch (Exception e){}
-			if (conn != null)  try {conn.close();} catch (Exception e){}
+			if(rs != null)    try {rs.close();}    catch (SQLException e) {e.printStackTrace();}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {e.printStackTrace();}
+			if(conn != null)  try {conn.close();}  catch (SQLException e) {e.printStackTrace();}
 		}
 		
 	}

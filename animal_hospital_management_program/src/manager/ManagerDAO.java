@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ManagerDAO {
 
@@ -52,6 +53,10 @@ public class ManagerDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			if(rs != null)    try {rs.close();}    catch (SQLException e) {e.printStackTrace();}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {e.printStackTrace();}
+			if(conn != null)  try {conn.close();}  catch (SQLException e) {e.printStackTrace();}
 		}
 		
 		return isValidManager;
@@ -72,6 +77,10 @@ public class ManagerDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			if(rs != null)    try {rs.close();}    catch (SQLException e) {e.printStackTrace();}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {e.printStackTrace();}
+			if(conn != null)  try {conn.close();}  catch (SQLException e) {e.printStackTrace();}
 		}
 		
 		if(isIdDuple) {
@@ -116,6 +125,10 @@ public class ManagerDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			if(rs != null)    try {rs.close();}    catch (SQLException e) {e.printStackTrace();}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {e.printStackTrace();}
+			if(conn != null)  try {conn.close();}  catch (SQLException e) {e.printStackTrace();}
 		}
 	}
 
